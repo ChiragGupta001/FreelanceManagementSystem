@@ -1,0 +1,26 @@
+
+
+<div class="background">
+    <div class="shape"></div>
+    <div class="shape"></div>
+</div>
+<form [formGroup]="LoginForm" (ngSubmit)="Login(LoginForm.value)">
+    <h3 class="text-dark">Login Here</h3>
+
+    <label class="text-dark" for="username">Username</label>
+    <input type="text" formControlName="Email" [class.is-invalid]="email.invalid && email.touched" placeholder="Email or Phone" id="username">
+    <small [class.d-none]="email.valid || email.untouched">Username is required</small>
+
+    <label class="text-dark" for="password">Password</label>
+    <!-- <p-password [class.is-invalid]="password.invalid && password.touched" formControlName="Password" id="password" [toggleMask]="true"></p-password> -->
+    <input type="password" [class.is-invalid]="password.invalid && password.touched" formControlName="Password"  placeholder="Password" id="password">
+    <small [class.d-none]="password.valid || password.untouched">Password is required</small>
+
+    <button type="submit" class="text-dark">Log In</button>
+    <small><a (click)="ForgotPassword()">ForgotPassword?</a></small>
+    <p>Account don't Exist?<a (click)="Register()">SignUp</a></p>
+    <div class="social">
+        <div class="go"><i class="fab fa-google"></i> Google</div>
+        <div class="fb"><i class="fab fa-facebook"></i> Facebook</div>
+    </div>
+</form>

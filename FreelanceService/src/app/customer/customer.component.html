@@ -1,0 +1,23 @@
+
+<span class="p-input-icon-right m-4">
+    Search: <i class="pi pi-search"></i><input type="text" pInputText (input)="search($any($event.target).value)" class="p-1" />
+</span>
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-lg-3" *ngFor="let product of services">
+            <div class="card">
+                <img src={{product.image}} class="card-img-top" alt="..." width="200" height="200">
+                <div class="card-body">
+                    <h5 class="card-title">{{product.title}}</h5>
+                    <p class="card-text">{{product.description}}</p>
+                    <p class="card-text">{{product.price}}</p>
+                    <button type="button">Mail</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card flex justify-content-center">
+        <p-paginator (onPageChange)="onPageChange($any($event))" [first]="first" [rows]="rows" [totalRecords]="totalcount" [rowsPerPageOptions]="[2,4, 8, 12, 20, 32]"></p-paginator>
+    </div>
+</div>

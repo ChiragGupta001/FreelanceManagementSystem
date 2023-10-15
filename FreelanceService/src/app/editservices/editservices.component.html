@@ -1,0 +1,33 @@
+<form [formGroup]="EditForm" (ngSubmit)="EditService(EditForm.value)">
+
+    <div class="modal-body">
+        <div><label for="title">Title</label>
+            <input pInputText id="title" formControlName="Title" />
+        </div>
+
+        <div><label for="description">Description</label>
+            <input pInputText id="description" formControlName="Description">
+        </div>
+
+        <div><label for="price">Price</label>
+            <p-inputNumber formControlName="Price" mode="currency" inputId="price" currency="INR" locale="en-IN">
+            </p-inputNumber>
+        </div>
+
+        <div><label for="image">Image</label>
+            <img [src]="url" [class.d-none]="!isurl" style="width: 200px;height: 200px;">
+            <input type="file" id="image" formControlName="Image" accept="image/png, image/jpeg"
+                (change)="handleFileInput($event)">
+        </div>
+
+        <div>
+            <label for="service">Service</label>
+            <p-dropdown formControlName="Service" [options]="serviceType" optionLabel="service"
+                id="service"></p-dropdown>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="goBack()">Close</button>
+        <button type="submit" class="btn btn-primary">Edit</button>
+    </div>
+</form>
